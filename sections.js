@@ -155,4 +155,3 @@ const {Builder, By, Key, until} = require('selenium-webdriver');
 	} 
 })();
 
-//driver.wait(until.elementLocated(By.xpath('//a[@href="http://localhost/litecart/admin/?app=catalog&doc=catalog"]'), 3000/*ms*/));
