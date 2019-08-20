@@ -7,8 +7,8 @@ const {Builder, By, Key, until} = require('selenium-webdriver');
 	let driver = new Builder().forBrowser('chrome').build();
 	driver.manage().setTimeouts( {implicit: 3000} );
 	await driver.get('http://localhost/litecart/en/');
-	let blocks = await driver.findElements(By.xpath('//a[@class="link" and @title]')); //локатор блоков товаров
+	let blocks = await driver.findElements(By.css('li.product')); //локатор товаров
 	await blocks.forEach(async function () {
-		await driver.wait(until.elementLocated(By.css('a.link div.sticker')), 2000); //проверка наличия стикеров у блоков
+		await driver.wait(until.elementLocated(By.css('li.product div.sticker')), 2000); //проверка наличия у товаров стикеров
 	});
 })(); 
