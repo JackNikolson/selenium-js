@@ -1,5 +1,5 @@
 /* 2) на странице http://localhost/litecart/admin/?app=geo_zones&doc=geo_zones
-зайти в каждую из стран и проверить, что зоны расположены в алфавитном порядке */
+зайти в каждую из стран и проверить что зоны расположены в алфавитном порядке */
 const {Builder, By, Key, until} = require('selenium-webdriver');
 
 (async function () {
