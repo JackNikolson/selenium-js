@@ -1,2 +1,2 @@
 # selenium-js
-Selenium webdriver homework
+Selenium webdriver homework for courses.
