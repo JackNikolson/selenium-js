@@ -17,7 +17,7 @@ const {Builder, By, Key, until} = require('selenium-webdriver');
 (async function () {
 	let driver = new Builder().forBrowser('chrome').build();
 	driver.manage().setTimeouts( {implicit: 3000} );
-	await driver.get('http://localhost/litecart/public_html/en/');
+	await driver.get('http://localhost/litecart/en');
 	let duck = await driver.findElement(By.xpath('//div[@id="box-campaigns"]//a[1]')); //локатор ссылки на товар
 	let lineThrough = 'line-through'; //css значение зачеркнутого текста
 	let greyColorRGB = 'rgb(119, 119, 119)'; //css значение серого цвета
