@@ -19,10 +19,7 @@ const {Builder, By, Key, until} = require('selenium-webdriver');
 	driver.manage().setTimeouts( {implicit: 3000} );
 	await driver.get('http://localhost/litecart/public_html/en/');
 	let duck = await driver.findElement(By.xpath('//div[@id="box-campaigns"]//a[1]')); //локатор ссылки на товар
-	let lineThrough = 'line-through'; //css значение зачеркнутого текста
-	let greyColorRGB = 'rgb(119, 119, 119)'; //css значение серого цвета
-	let greyColorRGB1 = 'rgb(102, 102, 102)'; //css значение серого цвета на экране товара
-	let redColorRGB = 'rgb(204, 0, 0)'; //css значение красного цвета	
+	let lineThrough = 'line-through'; //css значение зачеркнутого текста	
 
 	async function catalog() {
 		let productName = await driver.findElement(By.xpath('//div[@id="box-campaigns"]//div[@class="name"]')).getAttribute('textContent'); //локатор названия продукта
