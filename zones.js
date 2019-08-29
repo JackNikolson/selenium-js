@@ -1,11 +1,9 @@
-/* 2) на странице http://localhost/litecart/admin/?app=geo_zones&doc=geo_zones
-зайти в каждую из стран и проверить что зоны расположены в алфавитном порядке */
 const {Builder, By, Key, until} = require('selenium-webdriver');
 
 (async function () {
 	let driver = new Builder().forBrowser('chrome').build();
 	driver.manage().setTimeouts( {implicit: 3000} );
-	await  driver.get('http://localhost/litecart/admin/?app=geo_zones&doc=geo_zones');
+	await  driver.get('http://localhost/litecart/public_html/admin/?app=geo_zones&doc=geo_zones');
 	let loginField = await driver.findElement(By.name('username'));
 	await loginField.sendKeys('admin');
 	let passwordField = await driver.findElement(By.name('password'));
@@ -30,7 +28,7 @@ const {Builder, By, Key, until} = require('selenium-webdriver');
 			} else {
 				console.log('Зоны в алфавитном порядке');
 			}
-			await driver.get('http://localhost/litecart/admin/?app=geo_zones&doc=geo_zones');
+			await driver.get('http://localhost/litecart/public_html/admin/?app=geo_zones&doc=geo_zones');
 		};
 	})();
 })();
