@@ -12,7 +12,6 @@ const path = require('path');
 	await driver.findElement(By.xpath('//div[@style="float: right;"]//a[2]')).click();
 	let imagePath = path.join(__dirname, 'falcon.jpg'); //путь до изображения товара
 	let rand = Math.floor(Math.random() * Math.floor(999999)); //рандомный код товара
-	console.log(imagePath);
 	
 	async function general() {
 		await driver.findElement(By.xpath('//input[@name="name[en]"]')).sendKeys('Millenium Falcon'); //name
