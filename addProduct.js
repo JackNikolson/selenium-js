@@ -5,7 +5,7 @@ const path = require('path');
 (async function() {
 	let driver = new Builder().forBrowser('chrome').build();
 	driver.manage().setTimeouts( {implicit: 3000} );
-	await driver.get('http://localhost/litecart/public_html/admin/');
+	await driver.get('http://localhost/litecart/admin/');
 	await driver.findElement(By.name('username')).sendKeys('admin');
 	await driver.findElement(By.name('password')).sendKeys('admin' + Key.ENTER);
 	await driver.findElement(By.xpath('//ul[@id="box-apps-menu"]//li[2]')).click();
@@ -33,17 +33,17 @@ const path = require('path');
 		await driver.findElement(By.xpath('//input[@name="short_description[en]"]')).sendKeys('test test'); //shrot description
 		await driver.findElement(By.xpath('//input[@name="head_title[en]"]')).sendKeys('Falcon millenium'); //head title
 		await driver.findElement(By.xpath('//input[@name="meta_description[en]"]')).sendKeys('test'); // meta description 
-	//await driver.quit();
 	}
 	await information();
 
 	async function prices() {
 		await driver.findElement(By.xpath('//div[@class="tabs"]//li[4]//a')).click(); //переход в таб 'prices'
-		await driver.sleep(1000);
-		await driver.findElement(By.xpath('//input[@name="purchase_price"]')).clear();
+		await driver.sleep(1000); 
+		await driver.findElement(By.xpath('//input[@name="purchase_price"]')).clear(); //purchase price
 		await driver.findElement(By.xpath('//input[@name="purchase_price"]')).sendKeys('200');
-		await driver.findElement(By.xpath('//select[@name="purchase_price_currency_code"]//option[@value="USD"]')).click();
-		await driver.findElement(By.xpath('//button[@name="save"]')).click();
+		await driver.findElement(By.xpath('//select[@name="purchase_price_currency_code"]//option[@value="USD"]')).click(); //currency code
+    await driver.findElement(By.xpath('//button[@name="save"]')).click(); 
+    await driver.wait(until.elementLocated(By.xpath('//div[@class="notice success"]')), 2000); //сообщение о успешном создании элемента
 	}
 	await prices();
 })()
