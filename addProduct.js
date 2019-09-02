@@ -42,8 +42,8 @@ const path = require('path');
 		await driver.findElement(By.xpath('//input[@name="purchase_price"]')).clear(); //purchase price
 		await driver.findElement(By.xpath('//input[@name="purchase_price"]')).sendKeys('200');
 		await driver.findElement(By.xpath('//select[@name="purchase_price_currency_code"]//option[@value="USD"]')).click(); //currency code
-    await driver.findElement(By.xpath('//button[@name="save"]')).click(); 
-    await driver.wait(until.elementLocated(By.xpath('//div[@class="notice success"]')), 2000); //сообщение о успешном создании элемента
+    		await driver.findElement(By.xpath('//button[@name="save"]')).click(); 
+    		await driver.wait(until.elementLocated(By.xpath('//div[@class="notice success"]')), 2000); //сообщение о успешном создании элемента
 	}
 	await prices();
 })()
