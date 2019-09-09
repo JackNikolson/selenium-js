@@ -18,9 +18,14 @@ const {Builder, By, Key, until} = require('selenium-webdriver');
 			await driver.sleep(1000);
 			await driver.get('http://localhost/litecart/admin/?app=catalog&doc=catalog&category_id=1');
 			await driver.manage().logs().get("browser").then(function(logsEntries) { //вывод логов консоли браузера
-	    	logsEntries.forEach(function(l) {
-	        console.log(l);
-	    	});
+    		if (logsEntries.length == 0) {
+  				console.log('Логи отсутствуют');
+  			} else {
+  				console.log('ВНИМАНИЕ! В консоли есть логи');
+  			}
+    		logsEntries.forEach(function(l) {
+    			console.log(l);
+				});
 			});
 		}
 		await driver.quit();
